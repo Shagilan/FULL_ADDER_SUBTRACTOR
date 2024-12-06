@@ -37,19 +37,62 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+![Screenshot 2024-11-28 111318](https://github.com/user-attachments/assets/91a62e2d-3715-4a24-b4d6-4474d6d846b6)
+![Screenshot 2024-11-28 111332](https://github.com/user-attachments/assets/4ee8afb0-5781-40b3-833f-b996f2f11085)
 
 **Procedure**
+```
+1)Create a New Project in Quartus:
+-Open Quartus and create a new project.
+-Set the target device (FPGA or CPLD) for your project.
 
-Write the detailed procedure here
+2)Add Verilog File:
+-In the project, add a new Verilog file (.v).
+-Copy and paste the Verilog code for the Full Adder and Full Subtractor modules (with testbenches) into the file.
 
+3)Compile the Design:
+-Click on Compile to check for syntax errors and to synthesize the design.
+
+4)Set Up Simulation (ModelSim):
+-Open ModelSim (integrated with Quartus).
+-Set up a simulation for the Verilog testbench by specifying the testbench module to simulate.
+-Add simulation libraries if necessary.
+
+5)Run the Simulation:
+-In ModelSim, run the simulation.
+-Observe the waveforms or outputs to verify the truth table results for both the Full Adder and Full Subtractor.
+
+6)Verify Outputs:
+-Ensure the outputs match the expected truth tables for both circuits.
+-Full Adder should output Sum and Carry (Cout).
+-Full Subtractor should output Difference (D) and Borrow (Bout).
+
+7)Finish and Save:
+-Save the results and the project.
+```
 **Program:**
+  ```
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by: SHAGILAN U
+RegisterNumber: 24013515
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+module exp4(a,b,cin,bin,sum,carry,difference,borrow);
+input a,b,cin,bin;
+output sum,carry,difference,borrow;
+assign sum=( (a ^ b)^cin);
+assign carry= ( (a & b)| ( cin &(a ^ b )));
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( a & b)| ( bin & ((a ^ b ))));
+
+
 */
 
+```
 **RTL Schematic**
+![Screenshot 2024-11-28 112042](https://github.com/user-attachments/assets/286c6bf5-0729-4f42-bc71-7feaf5190279)
 
 **Output Timing Waveform**
+![Screenshot 2024-11-28 112147](https://github.com/user-attachments/assets/8ad010b5-1204-4d83-9b80-661518bf3edf)
 
 **Result:**
 
